@@ -1,0 +1,25 @@
+{
+    "name": "zerosuxx/zerophp-debug",
+    "description": "ZeroPHP Debug",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohos Tamás",
+            "email": "tomi@mohos.name"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Zero\\": "src/"
+        },
+        "files": [
+            "src/Debug/functions.php"
+        ]
+    },
+    "require": {
+        "php": "^7.1.3",
+        "symfony/var-dumper": "^4.1@dev"
+    }
+}
