@@ -52,15 +52,9 @@ class Dumper implements DumperInterface {
      * @param mixed $_ [optional]
      */
 	public function varDump($var) {
-        if( !$this->isCli() ) {
-	        echo '<pre>';
-        } else {
-            echo "\r\n";
-        }
+        echo '<pre>'."\r\n";
 	    call_user_func_array('var_dump', func_get_args());
-	    if( !$this->isCli() ) {
-	        echo '</pre>';
-        }
+        echo '</pre>';
 	}
     
     /**
@@ -124,13 +118,6 @@ class Dumper implements DumperInterface {
      */
     public function getTraceString() {
         return (new Exception)->getTraceAsString();
-    }
-    
-    /**
-     * @return boolean
-     */
-    protected function isCli() {
-        return php_sapi_name() === 'cli';
     }
 
 }
