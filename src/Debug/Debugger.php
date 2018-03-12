@@ -83,27 +83,4 @@ class Debugger {
         static::dumpTrace($vars);
         die();
     }
-	
-    /**
-     * @param mixed $var
-     * @param mixed $_ [optional]
-     */
-	public static function varDump($var) {
-        if( !static::isCli() ) {
-	        echo '<pre>';
-        } else {
-            echo "\r\n";
-        }
-	    call_user_func_array('var_dump', func_get_args());
-	    if( !static::isCli() ) {
-	        echo '</pre>';
-        }
-	}
-    
-    /**
-     * @return boolean
-     */
-    public static function isCli() {
-        return php_sapi_name() === 'cli';
-    }
 }

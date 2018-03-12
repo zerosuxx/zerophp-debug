@@ -17,7 +17,7 @@ class Dumper implements DumperInterface {
      */
     public function __construct(callable $printer = null) {
         if(null === $printer) {
-            $printer = 'var_dump';
+            $printer = [$this, 'varDump'];
         }
         $this->printer = $printer;
     }
@@ -46,6 +46,22 @@ class Dumper implements DumperInterface {
             $printer($arg);
         }
     }
+    
+    /**
+     * @param mixed $var
+     * @param mixed $_ [optional]
+     */
+	public function varDump($var) {
+        if( !$this->isCli()) ) {
+	        echo '<pre>';
+        } else {
+            echo "\r\n";
+        }
+	    call_user_func_array('var_dump', func_get_args());
+	    if( !$this->isCli() ) {
+	        echo '</pre>';
+        }
+	}
     
     /**
      * @param int $startIndex [optional] <p>default: 0</p>
@@ -108,6 +124,13 @@ class Dumper implements DumperInterface {
      */
     public function getTraceString() {
         return (new Exception)->getTraceAsString();
+    }
+    
+    /**
+     * @return boolean
+     */
+    protected function isCli() {
+        return php_sapi_name() === 'cli';
     }
 
 }
