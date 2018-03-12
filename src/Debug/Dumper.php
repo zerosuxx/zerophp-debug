@@ -54,7 +54,7 @@ class Dumper implements DumperInterface {
 	public function varDump($var) {
         echo '<pre>'."\r\n";
 	    call_user_func_array('var_dump', func_get_args());
-        echo '</pre>';
+        echo '</pre>'."\r\n";
 	}
     
     /**
