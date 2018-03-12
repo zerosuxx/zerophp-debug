@@ -52,7 +52,7 @@ class Dumper implements DumperInterface {
      * @param mixed $_ [optional]
      */
 	public function varDump($var) {
-        if( !$this->isCli()) ) {
+        if( !$this->isCli() ) {
 	        echo '<pre>';
         } else {
             echo "\r\n";
