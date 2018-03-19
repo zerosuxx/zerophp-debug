@@ -80,7 +80,7 @@ class Debugger {
      * @return void
      */
     public static function dtd($vars = null, $traceStartIndex = 0) {
-        static::dumpTrace($vars);
+        static::dumpTrace($vars, $traceStartIndex);
         die();
     }
 }

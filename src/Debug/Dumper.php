@@ -10,6 +10,9 @@ namespace Zero\Debug;
  * @version 1.00
  */
 class Dumper implements DumperInterface {
+    /**
+     * @var callable
+     */
     private $printer;
     
     /**
@@ -97,11 +100,11 @@ class Dumper implements DumperInterface {
             $formattedArgs = array_map([$this, 'getType'], $trace['args']);
             $argsString = implode(', ', $formattedArgs);
         }
-        $output = $trace['file'] . ':' . $trace['line'].' #';
-        if(isset($trace['class'])) {
-            $output .= ' ' . $trace['class'] . $trace['type'];
+        $output = $trace['file'] . ':' . $trace['line'].' # ';
+        if( isset($trace['class']) ) {
+            $output .= $trace['class'] . $trace['type'] . ' ';
         }
-        $output .= ' ' . $trace['function'] . '('.$argsString.')';
+        $output .= $trace['function'] . '('.$argsString.')';
         return $output;
     }
     
