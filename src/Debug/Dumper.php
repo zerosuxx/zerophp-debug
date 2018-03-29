@@ -7,7 +7,7 @@ namespace Zero\Debug;
  *
  * @author Mohos Tamás <tomi@mohos.name>
  * @package Zero\Debug
- * @version 1.00
+ * @version 1.01
  */
 class Dumper implements DumperInterface {
     /**
@@ -102,7 +102,7 @@ class Dumper implements DumperInterface {
         }
         $output = $trace['file'] . ':' . $trace['line'].' # ';
         if( isset($trace['class']) ) {
-            $output .= $trace['class'] . $trace['type'] . ' ';
+            $output .= $trace['class'] . $trace['type'];
         }
         $output .= $trace['function'] . '('.$argsString.')';
         return $output;

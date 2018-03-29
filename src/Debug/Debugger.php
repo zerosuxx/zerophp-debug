@@ -7,7 +7,7 @@ namespace Zero\Debug;
  *
  * @author Mohos Tamás <tomi@mohos.name>
  * @package Zero\Debug
- * @version 2.0
+ * @version 2.01
  */
 class Debugger {
     /** @var DumperInterface */
@@ -80,7 +80,7 @@ class Debugger {
      * @return void
      */
     public static function dtd($vars = null, $traceStartIndex = 0) {
-        static::dumpTrace($vars, $traceStartIndex);
+        static::dumpTrace($vars, $traceStartIndex+1);
         die();
     }
 }
